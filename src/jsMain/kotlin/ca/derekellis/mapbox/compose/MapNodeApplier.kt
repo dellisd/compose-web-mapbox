@@ -8,7 +8,6 @@ import mapbox.GeoJSONSource
 
 internal class MapNodeApplier(private val mapRef: mapbox.Map) : AbstractApplier<MapNode>(RootNode()) {
   override fun onClear() {
-    console.log("on clear")
     (root as? RootNode)?.run {
       children.forEach { sourceNode ->
         sourceNode.layers.forEach {

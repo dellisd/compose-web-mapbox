@@ -28,7 +28,6 @@ fun MapboxMap(
 ) {
   var map: mapbox.Map? by remember { mutableStateOf(null) }
   val scope = rememberCoroutineScope()
-
   Div(attrs = {
     this.containerAttrs()
 
@@ -41,13 +40,12 @@ fun MapboxMap(
           this.projection = projection
           this.hash = hash
 
-          this.center = state.initialCenter
+          this.center = state.initialCenter.array
           this.zoom = state.initialZoom
           this.bearing = state.initialBearing
           this.pitch = state.initialPitch
         },
       )
-      console.dir(map!!)
       map?.resize()
 
       state.map = map

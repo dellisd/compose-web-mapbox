@@ -1,6 +1,6 @@
 package ca.derekellis.mapbox
 
-value class LngLatBounds private constructor(val array: Array<Double>) {
+class LngLatBounds private constructor(val array: Array<Double>) {
   constructor(southwest: LngLat, northeast: LngLat) : this(
     arrayOf(
       southwest.longitude,

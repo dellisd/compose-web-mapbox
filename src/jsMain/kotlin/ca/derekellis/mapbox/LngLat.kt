@@ -1,6 +1,9 @@
 package ca.derekellis.mapbox
 
-value class LngLat private constructor(val array: Array<Double>) {
+/**
+ * TODO: Make this a `value` class
+ */
+class LngLat private constructor(val array: Array<Double>) {
   constructor(longitude: Double, latitude: Double) : this(arrayOf(longitude, latitude))
 
   inline val longitude: Double get() = array[0]

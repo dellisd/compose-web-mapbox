@@ -9,8 +9,8 @@ plugins {
 group = "ca.derekellis.mapbox"
 version = "0.1.0-SNAPSHOT"
 
-repositories {
-  mavenCentral()
+compose {
+  kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:${libs.versions.composeCompiler.get()}")
 }
 
 kotlin {
