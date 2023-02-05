@@ -4,6 +4,7 @@ plugins {
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose)
   alias(libs.plugins.spotless)
+  alias(libs.plugins.publish)
 }
 
 group = "ca.derekellis.mapbox"
