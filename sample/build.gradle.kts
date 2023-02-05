@@ -50,7 +50,8 @@ buildkonfig {
     val file = rootProject.file("local.properties")
     val properties = Properties().apply { load(file.reader()) }
 
-    check(properties.containsKey("MAPBOX_ACCESS_TOKEN")) { "'MAPBOX_ACCESS_TOKEN' not defined in local.properties" }
-    buildConfigField(STRING, "MAPBOX_ACCESS_TOKEN", "${properties["MAPBOX_ACCESS_TOKEN"]}")
+    val accessToken: String? = System.getenv()["MAPBOX_ACCESS_TOKEN"] ?: properties["MAPBOX_ACCESS_TOKEN"]?.toString()
+    checkNotNull(accessToken) { "'MAPBOX_ACCESS_TOKEN' not defined in local.properties" }
+    buildConfigField(STRING, "MAPBOX_ACCESS_TOKEN", accessToken)
   }
 }

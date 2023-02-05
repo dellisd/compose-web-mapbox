@@ -20,6 +20,8 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build sample distribution
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
         run: ./gradlew :sample:jsBrowserDistribution
 
       - uses: actions/upload-pages-artifact@v1
