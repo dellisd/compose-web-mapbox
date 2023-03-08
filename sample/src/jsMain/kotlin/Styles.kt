@@ -4,6 +4,7 @@ import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.FlexDirection
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.StyleSheet
+import org.jetbrains.compose.web.css.backgroundColor
 import org.jetbrains.compose.web.css.color
 import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.flexDirection
@@ -23,12 +24,14 @@ import org.jetbrains.compose.web.css.width
 
 object MainStyle {
   val textPrimary by variable<CSSColorValue>()
+  val backgroundPrimary by variable<CSSColorValue>()
 }
 
 object Light : StyleSheet() {
   init {
     ":root" style {
       MainStyle.textPrimary(Color("#000000"))
+      MainStyle.backgroundPrimary(Color("#FFFFFF"))
     }
   }
 }
@@ -37,6 +40,7 @@ object Dark : StyleSheet() {
   init {
     ":root" style {
       MainStyle.textPrimary(Color("#FFFFFF"))
+      MainStyle.backgroundPrimary(Color("#000000"))
     }
   }
 }
@@ -48,6 +52,10 @@ object MainStyleSheet : StyleSheet() {
       height(100.percent)
       margin(0.px)
       fontFamily("sans-serif")
+    }
+
+    "body" {
+      backgroundColor(MainStyle.backgroundPrimary.value())
     }
   }
 
