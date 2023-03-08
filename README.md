@@ -4,7 +4,7 @@ A Compose for Web wrapper of Mapbox.
 
 ## Setup
 
-This wrapper is currently built to work with Kotlin `1.8.10`, Compose for Web `1.3.0`, and the Compose Compiler `1.4.1-dev-k1.8.10-c312d77f4cb`.  
+This library currently targets Kotlin `1.8.10`, with a minimum Compose for Web version of `1.3.1-rc02`.  
 (Kotlin 1.8.0 is unsupported due to a compiler bug).
 
 To add this to your compose project, make sure to specify the version of the compose compiler, and add this library as a dependency.
@@ -13,17 +13,11 @@ To add this to your compose project, make sure to specify the version of the com
 // build.gradle.kts
 plugins {
   id("org.jetbrains.kotlin.multiplatform") version "1.8.10"
-  id("org.jetbrains.compose") version "1.3.0"
+  id("org.jetbrains.compose") version "1.3.1-rc02"
 }
 
 repositories {
   maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
-  // Currently requiring a development version of the compose compiler
-  maven(url = "https://androidx.dev/storage/compose-compiler/repository/")
-}
-
-compose {
-  kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:1.4.1-dev-k1.8.10-c312d77f4cb")
 }
 
 kotlin {
@@ -39,7 +33,7 @@ kotlin {
 
 ## Usage
 
-To create a map, call `rememberMapboxState()` to obtain a map state object that you can use to programatically interact with the map. Then call the `MapboxMap()` composable and pass it your Mapbox access token and a map style URL at a minimum.
+To create a map, call `rememberMapboxState()` to obtain a map state object that you can use to programmatically interact with the map. Then call the `MapboxMap()` composable and pass it your Mapbox access token and a map style URL at a minimum.
 
 ```kotlin
 val mapState = rememberMapboxState()
