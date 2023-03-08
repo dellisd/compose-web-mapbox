@@ -3,7 +3,9 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           -77.3799684385333,
@@ -14,7 +16,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           -113.89153550201166,
@@ -25,7 +29,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           -31.99016235982532,
@@ -36,7 +42,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           23.48942254442872,
@@ -47,7 +55,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           5.437356763575224,
@@ -58,7 +68,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           -14.189851300810915,
@@ -69,7 +81,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "filterMe": true
+      },
       "geometry": {
         "coordinates": [
           -70.04711604244716,

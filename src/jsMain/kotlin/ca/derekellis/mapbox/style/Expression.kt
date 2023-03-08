@@ -1,54 +1,55 @@
+@file:Suppress("NOTHING_TO_INLINE")
 package ca.derekellis.mapbox.style
 
-typealias Expression = Array<out Any>
+value class Expression(val parts: Array<out Any>)
 
-fun expression(vararg parts: Any): Expression = parts
+inline fun expression(vararg parts: Any): Expression = Expression(parts)
 
-fun at(index: Int, array: dynamic): Expression = arrayOf("at", index, array)
+inline fun at(index: Int, array: dynamic): Expression = expression("at", index, array)
 
-fun get(prop: String): Expression = arrayOf("get", prop)
+inline fun get(prop: String): Expression = expression("get", prop)
 
-fun get(prop: String, obj: dynamic): Expression = arrayOf("get", prop, obj)
+inline fun get(prop: String, obj: dynamic): Expression = expression("get", prop, obj)
 
-fun has(prop: String): Expression = arrayOf("has", prop)
+inline fun has(prop: String): Expression = expression("has", prop)
 
-fun has(prop: String, obj: dynamic): Expression = arrayOf("has", prop, obj)
+inline fun has(prop: String, obj: dynamic): Expression = expression("has", prop, obj)
 
-fun `in`(keyword: dynamic, input: dynamic): Expression = arrayOf("in", keyword, input)
+inline fun `in`(keyword: dynamic, input: dynamic): Expression = expression("in", keyword, input)
 
-fun not(value: dynamic): Expression = arrayOf("!", value)
+inline fun not(value: dynamic): Expression = expression("!", value)
 
-fun neq(a: dynamic, b: dynamic): Expression = arrayOf("!=", a, b)
+inline fun neq(a: dynamic, b: dynamic): Expression = expression("!=", a, b)
 
-fun neq(a: dynamic, b: dynamic, collator: dynamic): Expression = arrayOf("!=", a, b, collator)
+inline fun neq(a: dynamic, b: dynamic, collator: dynamic): Expression = expression("!=", a, b, collator)
 
-fun lt(a: dynamic, b: dynamic): Expression = arrayOf("<", a, b)
+inline fun lt(a: dynamic, b: dynamic): Expression = expression("<", a, b)
 
-fun lt(a: dynamic, b: dynamic, collator: dynamic): Expression = arrayOf("<", a, b, collator)
+inline fun lt(a: dynamic, b: dynamic, collator: dynamic): Expression = expression("<", a, b, collator)
 
-fun lte(a: dynamic, b: dynamic): Expression = arrayOf("<=", a, b)
+inline fun lte(a: dynamic, b: dynamic): Expression = expression("<=", a, b)
 
-fun lte(a: dynamic, b: dynamic, collator: dynamic): Expression = arrayOf("<=", a, b, collator)
+inline fun lte(a: dynamic, b: dynamic, collator: dynamic): Expression = expression("<=", a, b, collator)
 
-fun eq(a: dynamic, b: dynamic): Expression = arrayOf("==", a, b)
+inline fun eq(a: dynamic, b: dynamic): Expression = expression("==", a, b)
 
-fun eq(a: dynamic, b: dynamic, collator: dynamic): Expression = arrayOf("==", a, b, collator)
+inline fun eq(a: dynamic, b: dynamic, collator: dynamic): Expression = expression("==", a, b, collator)
 
-fun gt(a: dynamic, b: dynamic): Expression = arrayOf(">", a, b)
+inline fun gt(a: dynamic, b: dynamic): Expression = expression(">", a, b)
 
-fun gt(a: dynamic, b: dynamic, collator: dynamic): Expression = arrayOf(">", a, b, collator)
+inline fun gt(a: dynamic, b: dynamic, collator: dynamic): Expression = expression(">", a, b, collator)
 
-fun gte(a: dynamic, b: dynamic): Expression = arrayOf(">=", a, b)
+inline fun gte(a: dynamic, b: dynamic): Expression = expression(">=", a, b)
 
-fun gte(a: dynamic, b: dynamic, collator: dynamic): Expression = arrayOf(">=", a, b, collator)
+inline fun gte(a: dynamic, b: dynamic, collator: dynamic): Expression = expression(">=", a, b, collator)
 
-fun all(a: dynamic, b: dynamic): Expression = arrayOf("all", a, b)
+inline fun all(a: dynamic, b: dynamic): Expression = expression("all", a, b)
 
-fun all(a: dynamic, b: dynamic, vararg rest: dynamic): Expression = arrayOf("all", a, b, *rest)
+inline fun all(a: dynamic, b: dynamic, vararg rest: dynamic): Expression = expression("all", a, b, *rest)
 
-fun any(a: dynamic, b: dynamic): Expression = arrayOf("any", a, b)
+inline fun any(a: dynamic, b: dynamic): Expression = expression("any", a, b)
 
-fun any(a: dynamic, b: dynamic, vararg rest: dynamic): Expression = arrayOf("any", a, b, *rest)
+inline fun any(a: dynamic, b: dynamic, vararg rest: dynamic): Expression = expression("any", a, b, *rest)
 
-fun interpolate(type: Expression, input: Expression, vararg stops: Pair<Number, dynamic>): Expression =
-  arrayOf("interpolate", type, input, *stops.flatMap { (input, output) -> listOf(input, output) }.toTypedArray())
+inline fun interpolate(type: Expression, input: Expression, vararg stops: Pair<Number, dynamic>): Expression =
+  expression("interpolate", type, input, *stops.flatMap { (input, output) -> listOf(input, output) }.toTypedArray())

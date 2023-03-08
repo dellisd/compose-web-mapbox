@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ca.derekellis.mapbox.style
 
 sealed interface Anchor {

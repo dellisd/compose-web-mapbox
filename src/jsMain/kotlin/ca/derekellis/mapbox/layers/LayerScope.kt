@@ -5,6 +5,7 @@ import androidx.compose.runtime.ComposeNode
 import ca.derekellis.mapbox.compose.ExpressionNode
 import ca.derekellis.mapbox.compose.ExpressionType
 import ca.derekellis.mapbox.compose.MapNodeApplier
+import ca.derekellis.mapbox.style.Expression
 import ca.derekellis.mapbox.style.Visibility
 
 abstract class LayerScope(protected val layerId: String, private val mapRef: mapbox.Map) {
@@ -26,6 +27,12 @@ abstract class LayerScope(protected val layerId: String, private val mapRef: map
   }
 
   @Composable
+  @Suppress("NOTHING_TO_INLINE")
+  protected inline fun paint(name: String, value: Expression) {
+    paint(name, value.parts)
+  }
+
+  @Composable
   protected fun layout(name: String, value: Any?) {
     ComposeNode<ExpressionNode, MapNodeApplier>(
       factory = {
@@ -40,6 +47,12 @@ abstract class LayerScope(protected val layerId: String, private val mapRef: map
         }
       },
     )
+  }
+
+  @Composable
+  @Suppress("NOTHING_TO_INLINE")
+  protected inline fun layout(name: String, value: Expression) {
+    layout(name, value.parts)
   }
 
   @Composable

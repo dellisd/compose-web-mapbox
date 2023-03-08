@@ -4,6 +4,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import ca.derekellis.mapbox.MapboxMap
 import ca.derekellis.mapbox.rememberMapboxState
+import ca.derekellis.mapbox.style.get
 import com.sample.BuildKonfig
 import geojson.GeoJsonObject
 import org.jetbrains.compose.web.attributes.InputType
@@ -33,6 +34,7 @@ fun main() {
     var showLayer by remember { mutableStateOf(true) }
     var circleSize by remember { mutableStateOf(5) }
     var isDarkTheme by remember { mutableStateOf(false) }
+    var enableFilter by remember { mutableStateOf(false) }
 
     if (isDarkTheme) Style(Dark) else Style(Light)
     Style(MainStyleSheet)
@@ -50,7 +52,7 @@ fun main() {
     ) {
       GeoJsonSource("test", data = data.unsafeCast<GeoJsonObject>()) {
         if (showLayer) {
-          CircleLayer("circles") {
+          CircleLayer("circles", filter = if (enableFilter) get("filterMe") else null) {
             circleColor(color)
             circleRadius(circleSize)
           }
@@ -87,6 +89,15 @@ fun main() {
           id("theme-toggle")
           onClick { isDarkTheme = !isDarkTheme }
         }) { Text(if (isDarkTheme) "Dark" else "Light") }
+      }
+      Div {
+        Label(forId = "filter-toggle") { Text("Toggle Filter:") }
+        Button(attrs = {
+          id("filter-toggle")
+          onClick { enableFilter = !enableFilter }
+        }) {
+          Text(if (enableFilter) "ON" else "OFF")
+        }
       }
     }
   }
