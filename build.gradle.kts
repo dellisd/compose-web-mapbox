@@ -10,10 +10,6 @@ plugins {
 group = "ca.derekellis.mapbox"
 version = "0.1.0-SNAPSHOT"
 
-compose {
-  kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:${libs.versions.composeCompiler.get()}")
-}
-
 kotlin {
   js(IR) {
     browser {

@@ -15,10 +15,6 @@ plugins {
   alias(libs.plugins.buildKonfig)
 }
 
-compose {
-  kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:${libs.versions.composeCompiler.get()}")
-}
-
 kotlin {
   js(IR) {
     browser {
