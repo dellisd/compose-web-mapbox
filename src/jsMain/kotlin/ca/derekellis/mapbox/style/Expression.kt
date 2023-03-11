@@ -50,6 +50,3 @@ inline fun all(a: dynamic, b: dynamic, vararg rest: dynamic): Expression = expre
 inline fun any(a: dynamic, b: dynamic): Expression = expression("any", a, b)
 
 inline fun any(a: dynamic, b: dynamic, vararg rest: dynamic): Expression = expression("any", a, b, *rest)
-
-inline fun interpolate(type: Expression, input: Expression, vararg stops: Pair<Number, dynamic>): Expression =
-  expression("interpolate", type, input, *stops.flatMap { (input, output) -> listOf(input, output) }.toTypedArray())
