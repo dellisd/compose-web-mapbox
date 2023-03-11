@@ -13,23 +13,23 @@ public sealed interface InterpolationType {
   }
 }
 
-public inline fun interpolate(type: InterpolationType, input: Expression, vararg stops: Pair<Number, Any?>): Expression =
+public inline fun interpolate(type: InterpolationType, input: Expression, vararg stops: Pair<Number, Any>): Expression =
   expression(
     "interpolate",
     type,
     input.parts,
-    Array(stops.size * 2) { i -> if (i % 2 == 0) stops[i / 2].first else stops[(i - 1) / 2].second })
+    *Array(stops.size * 2) { i -> if (i % 2 == 0) stops[i / 2].first else stops[(i - 1) / 2].second })
 
-public inline fun interpolateHcl(type: InterpolationType, input: Expression, vararg stops: Pair<Number, Any?>): Expression =
+public inline fun interpolateHcl(type: InterpolationType, input: Expression, vararg stops: Pair<Number, Any>): Expression =
   expression(
     "interpolate-hcl",
     type,
     input.parts,
-    Array(stops.size * 2) { i -> if (i % 2 == 0) stops[i / 2].first else stops[(i - 1) / 2].second })
+    *Array(stops.size * 2) { i -> if (i % 2 == 0) stops[i / 2].first else stops[(i - 1) / 2].second })
 
-public inline fun interpolateLab(type: InterpolationType, input: Expression, vararg stops: Pair<Number, Any?>): Expression =
+public inline fun interpolateLab(type: InterpolationType, input: Expression, vararg stops: Pair<Number, Any>): Expression =
   expression(
     "interpolate-lab",
     type,
     input.parts,
-    Array(stops.size * 2) { i -> if (i % 2 == 0) stops[i / 2].first else stops[(i - 1) / 2].second })
+    *Array(stops.size * 2) { i -> if (i % 2 == 0) stops[i / 2].first else stops[(i - 1) / 2].second })
