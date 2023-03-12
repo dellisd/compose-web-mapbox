@@ -9,6 +9,7 @@ import ca.derekellis.mapbox.compose.MapNodeApplier
 import ca.derekellis.mapbox.compose.SourceNode
 import ca.derekellis.mapbox.sources.SourceScope
 import geojson.GeoJsonObject
+import geojson.Position
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import mapbox.GeoJSONSource
@@ -20,7 +21,17 @@ class MapScope(private val mapRef: mapbox.Map) {
    * TODO: Add other GeoJSONSource parameters
    */
   @Composable
-  fun GeoJsonSource(id: String, data: GeoJsonObject, layers: @Composable SourceScope.() -> Unit) {
+  fun GeoJsonSource(id: String, geojson: GeoJsonObject, layers: @Composable SourceScope.() -> Unit) {
+    GeoJsonSource(id, data = geojson, layers)
+  }
+
+  @Composable
+  fun GeoJsonSource(id: String, url: String, layers: @Composable SourceScope.() -> Unit) {
+    GeoJsonSource(id, data = url, layers)
+  }
+
+  @Composable
+  private fun GeoJsonSource(id: String, data: Any?, layers: @Composable SourceScope.() -> Unit) {
     val layerScope = SourceScope(id, mapRef)
 
     ComposeNode<SourceNode, MapNodeApplier>(

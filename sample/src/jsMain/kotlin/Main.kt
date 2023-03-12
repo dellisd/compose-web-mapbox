@@ -50,7 +50,7 @@ fun main() {
         }
       },
     ) {
-      GeoJsonSource("test", data = data.unsafeCast<GeoJsonObject>()) {
+      GeoJsonSource("test", geojson = data.unsafeCast<GeoJsonObject>()) {
         if (showLayer) {
           CircleLayer("circles", filter = if (enableFilter) get("filterMe") else null) {
             circleColor(color)
