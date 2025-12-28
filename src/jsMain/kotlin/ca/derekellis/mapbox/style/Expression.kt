@@ -1,4 +1,5 @@
 @file:Suppress("NOTHING_TO_INLINE")
+
 package ca.derekellis.mapbox.style
 
 value class Expression(val parts: Array<out Any>)

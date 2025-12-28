@@ -9,7 +9,6 @@ import ca.derekellis.mapbox.compose.MapNodeApplier
 import ca.derekellis.mapbox.compose.SourceNode
 import ca.derekellis.mapbox.sources.SourceScope
 import geojson.GeoJsonObject
-import geojson.Position
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import mapbox.GeoJSONSource

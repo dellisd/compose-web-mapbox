@@ -63,7 +63,7 @@ external interface `T$2` {
 
 external interface `T$3` {
   @nativeGetter
-  operator fun get(`_`: String): dynamic /* Point? | JsTuple<Number, Number> */
+  operator fun get(`_`: String): Any? /* Point? | JsTuple<Number, Number> */
   @nativeSetter
   operator fun set(`_`: String, value: Point)
 
@@ -882,7 +882,7 @@ external interface Light {
 
 external interface Fog {
   @nativeGetter
-  operator fun get(key: String): dynamic? /* Number? | JsTuple<String, Any> */
+  operator fun get(key: String): Any? /* Number? | JsTuple<String, Any> */
   @nativeSetter
   operator fun set(key: String, value: dynamic /* Number? | JsTuple<String, Any> */)
   var color: dynamic /* String? | JsTuple<String, Any> */
@@ -895,7 +895,7 @@ external interface Fog {
 
 external interface Sources {
   @nativeGetter
-  operator fun get(sourceName: String): dynamic /* GeoJSONSourceRaw? | VideoSourceRaw? | ImageSourceRaw? | CanvasSourceRaw? | VectorSource? | RasterSource? | RasterDemSource? */
+  operator fun get(sourceName: String): Any? /* GeoJSONSourceRaw? | VideoSourceRaw? | ImageSourceRaw? | CanvasSourceRaw? | VectorSource? | RasterSource? | RasterDemSource? */
   @nativeSetter
   operator fun set(sourceName: String, value: GeoJSONSourceRaw)
 
@@ -1800,7 +1800,7 @@ external interface BackgroundPaint {
 
 external interface FillLayout : Layout {
   @nativeGetter
-  operator fun get(key: String): dynamic? /* Number? | JsTuple<String, Any> */
+  operator fun get(key: String): Any? /* Number? | JsTuple<String, Any> */
   @nativeSetter
   operator fun set(key: String, value: dynamic /* Number? | JsTuple<String, Any> */)
 }
@@ -1912,7 +1912,7 @@ external interface RasterPaint {
 
 external interface CircleLayout : Layout {
   @nativeGetter
-  operator fun get(key: String): dynamic? /* Number? | JsTuple<String, Any> */
+  operator fun get(key: String): Any? /* Number? | JsTuple<String, Any> */
   @nativeSetter
   operator fun set(key: String, value: dynamic /* Number? | JsTuple<String, Any> */)
 }
