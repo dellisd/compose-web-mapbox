@@ -24,7 +24,7 @@ jobs:
           MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
         run: ./gradlew :sample:jsBrowserDistribution --stacktrace
 
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v4
         if: success()
         with:
           path: sample/build/distributions
