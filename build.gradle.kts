@@ -9,7 +9,6 @@ plugins {
 }
 
 group = "ca.derekellis.mapbox"
-version = "0.1.0-SNAPSHOT"
 
 kotlin {
   js(IR) {
